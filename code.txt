@@ -1,0 +1,171 @@
+
+//videos 1-4
+// import logo from './logo.svg';
+{/* <h1>this is me</h1>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React with harrrrrrrrrrrrrrry
+        </a>
+      </header>
+    </div> */}
+    {/* <div className="blank">hhhhhhhhhhhhhhhhhhhh</div> */}
+  <nav>
+    <li>home</li>
+    <li>home</li>
+    <li>home</li>
+    <div className="container">
+      <h1>hello {name}</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic incidunt laboriosam quaerat ex earum sint adipisci ut fuga exercitationem maiores facilis amet, distinctio, aut vitae dignissimos aliquam libero deleniti fugit!</p>
+    </div>
+  </nav>
+  //////////////////////////
+
+
+  /* This Function Takes .txt file as a input and read its text */
+import React, {
+   useState
+} from 'react';
+
+function HandleFileContent() {
+   const [text,setText] = useState("");
+   const  HandleFile = () =>{
+      let files = document.querySelector('input[type="file"]').files;
+         const reader = new FileReader();
+         reader.onload = () => {
+            const lines = reader.result;
+            setText(lines);
+         };
+         reader.readAsText(files[0]);
+   };
+   return (
+      <div className="App">
+         <input type="file" accept="text/plain" onChange={HandleFile}/>
+         <div>{text}</div>
+      </div>
+   );
+}
+
+
+
+
+// have created a button to change the font-style of the text
+
+// 1st use a useState hook to define the font name
+const [font, setFont] = React.useState("");
+
+//4th declear the function
+   const fontFami = ()=>{
+        alert("make sure that the font is installed in your device")
+        let input = prompt("Enter the font name")
+         setFont(input)
+    }
+
+
+//2nd declear the inline font style into the textarea using the hook (font)
+<textarea style={{fontFamily:font}} className="form-control bg-info " 
+id="inputText" rows="10" value={text}  onChange={entrVal}></textarea>
+
+//3rd creat the button to oparate the font changing function
+<Button title="Change Font" btnFunc={fontFami} classProps="btn btn-warning m-1 rounded-pill" />
+
+
+export default HandleFileContent;
+
+<p >{((text.trim().split(" ")).filter(function (element) {
+  return element != "";
+})).length} words and {text.length} characters </p>
+
+in file TextForm.js
+word count error fix
+
+
+
+For Words Length Inaccuracy: I used this logic
+
+const [text , setText] = useState('');
+    let words = text.trim() // trim out useless spaces
+    let word_length; 
+    if(words.length === 0){ //If no letters typed, stright away = 0
+        word_length = 0;
+    }
+    else{
+        word_length = words.split(" ").length;
+    }
+
+
+    Task one completed :)
+we have to first pass an object into use state like this...
+  const [mode, setMode] = useState(
+
+    {
+
+      color:"dark",
+
+      backgroundColor:"light",
+
+      primaryClr:"primary",
+
+      greenClr:"success",
+
+      lightClr:"light"}
+
+  )
+
+// and after that pass a function for every btn which change theme something like this...
+  const switchToDark = () =>{ 
+
+        setMode(
+
+          {color:"dark",
+
+        backgroundColor:"light",
+
+        primaryClr:"primary",
+
+        greenClr:"success"})
+
+}
+
+
+
+const switchToGreen = () => {
+
+  setMode(
+
+    {color:"dark",
+
+  backgroundColor:"success",
+
+  primaryClr:"primary",
+
+  greenClr:"success",
+
+  lightClr:"light"})
+}
+
+const switchToBlue = () => {
+
+  setMode(
+
+    {color:"light",
+
+  backgroundColor:"primary",
+
+  primaryClr:"primary",
+
+  greenClr:"success",
+
+  lightClr:"light"
+})}
+
+
